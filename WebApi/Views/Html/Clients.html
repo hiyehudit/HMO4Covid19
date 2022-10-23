@@ -5,9 +5,7 @@
     <title></title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script type="text/javascript">
-        function a() {
-            alert("fghjk");
-        }
+ 
         function getAllClients() {
             console.log("hgg");
             $.ajax({
@@ -23,8 +21,6 @@
                 }
             })
         }
-        $(document).ready(function () {
-
             var person = {
                 tz: document.getElementsByClassName(tz).value,
                 firstName: document.getElementsByClassName(firstName).value,
@@ -37,101 +33,96 @@
                 postalCode: document.getElementsByClassName(postalCode).value,
                 beHealthDate: document.getElementsByClassName(beHealthDate).value,
                 city: document.getElementsByClassName(T_Address.city).value
-            }
+            }       
+            //function showClient(client = null) {
+            //    console.log(client);
+            //    var div = document.createElement("div"); div.id = client.id; div.className = "divClient";
+            //    var nameC = document.createElement("h2"); div.className = "h2Client"; nameC.textContent = "שם:        " + client.name
+            //    var labalDate = document.createElement("label"); labalDate.textContent = "תאריך:         "
+            //    var inputDate = document.createElement("input"); inputDate.type = "text"; inputDate.id = "inputDate" + client.id; inputDate.value = client.dateQueue;
+            //    var lableHour = document.createElement("label"); lableHour.textContent = "שעה:            "
+            //    var inputHour = document.createElement("input"); inputHour.type = "text"; inputHour.id = "inputHour" + client.id; inputHour.value = client.hourQueue;
+            //    var inputDelete = document.createElement("input"); inputDelete.type = "button"; inputDelete.onclick = () => deleteClient(client.tz); inputDelete.value = "delete"; inputDelete.className = "btn";
+            //    var inpuUpdate = document.createElement("input"); inpuUpdate.type = "button"; inpuUpdate.onclick = () => updateClient(client); inpuUpdate.value = "update"; inpuUpdate.className = "btn";
+            //    div.appendChild(nameC); div.appendChild(labalDate); div.appendChild(inputDate); div.appendChild(lableHour); div.appendChild(inputHour); div.appendChild(inputDelete); div.appendChild(inpuUpdate);
+            //    document.getElementById("allClients").appendChild(div)
+            //}
 
-            document.getElementById().onClick(getAllClients)
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/GetShotsByTz',
+            //    type: 'GET',
+            //    dataType: 'json',
+            //    data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        data.map(x => showClient(x));
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
+            //})
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/AddClient',
+            //    type: 'POST',
+            //    /*//dataType: 'json',*/
+            //    data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        console.log(data);
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
+            //})
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/AddShot',
+            //    type: 'POST',
+            //    ////dataType: 'json',
+            //    ////data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        console.log(data);
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
 
-          
-            function showClient(client = null) {
-                console.log(client);
-                var div = document.createElement("div"); div.id = client.id; div.className = "divClient";
-                var nameC = document.createElement("h2"); div.className = "h2Client"; nameC.textContent = "שם:        " + client.name
-                var labalDate = document.createElement("label"); labalDate.textContent = "תאריך:         "
-                var inputDate = document.createElement("input"); inputDate.type = "text"; inputDate.id = "inputDate" + client.id; inputDate.value = client.dateQueue;
-                var lableHour = document.createElement("label"); lableHour.textContent = "שעה:            "
-                var inputHour = document.createElement("input"); inputHour.type = "text"; inputHour.id = "inputHour" + client.id; inputHour.value = client.hourQueue;
-                var inputDelete = document.createElement("input"); inputDelete.type = "button"; inputDelete.onclick = () => deleteClient(client.tz); inputDelete.value = "delete"; inputDelete.className = "btn";
-                var inpuUpdate = document.createElement("input"); inpuUpdate.type = "button"; inpuUpdate.onclick = () => updateClient(client); inpuUpdate.value = "update"; inpuUpdate.className = "btn";
-                div.appendChild(nameC); div.appendChild(labalDate); div.appendChild(inputDate); div.appendChild(lableHour); div.appendChild(inputHour); div.appendChild(inputDelete); div.appendChild(inpuUpdate);
-                document.getElementById("allClients").appendChild(div)
-            }
-
-            $.ajax({
-                url: 'https://localhost:44301/home/GetShotsByTz',
-                type: 'GET',
-                //dataType: 'json',
-                //data: person,
-                success: function (data, textStatus, xhr) {
-                    data.map(x => showClient(x));
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-            })
-            $.ajax({
-                url: 'https://localhost:44301/home/AddClient',
-                type: 'POST',
-                //dataType: 'json',
-                data: person,
-                success: function (data, textStatus, xhr) {
-                    console.log(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-            })
-            $.ajax({
-                url: 'https://localhost:44301/home/AddShot',
-                type: 'POST',
-                //dataType: 'json',
-                //data: person,
-                success: function (data, textStatus, xhr) {
-                    console.log(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-
-            })
-            $.ajax({
-                url: 'https://localhost:44301/home/UpdateClient',
-                type: 'PUT',
-                //dataType: 'json',
-                //data: person,
-                success: function (data, textStatus, xhr) {
-                    console.log(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-            })
-            $.ajax({
-                url: 'https://localhost:44301/home/UpdateShot4Client',
-                type: 'PUT',
-                //dataType: 'json',
-                //data: person,
-                success: function (data, textStatus, xhr) {
-                    console.log(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-            })
-            $.ajax({
-                url: 'https://localhost:44301/home/DeleteClient?tz',
-                type: 'GET',
-                //dataType: 'json',
-                //data: person,
-                success: function (data, textStatus, xhr) {
-                    console.log(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('Error in Operation');
-                }
-            });
-        })
-    </script>
-    
+            //})
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/UpdateClient',
+            //    type: 'PUT',
+            //    dataType: 'json',
+            //    data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        console.log(data);
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
+            //})
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/UpdateShot4Client',
+            //    type: 'PUT',
+            //    dataType: 'json',
+            //    data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        console.log(data);
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
+            //})
+            //$.ajax({
+            //    url: 'https://localhost:44301/home/DeleteClient?tz',
+            //    type: 'GET',
+            //    dataType: 'json',
+            //    data: person,
+            //    success: function (data, textStatus, xhr) {
+            //        console.log(data);
+            //    },
+            //    error: function (xhr, textStatus, errorThrown) {
+            //        console.log('Error in Operation');
+            //    }
+            //});
+        
+    </script> 
 </head>
 <body>
     <button value="all clients" onclick="getAllClients()"> all clients </button>
