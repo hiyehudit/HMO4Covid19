@@ -29,6 +29,7 @@ namespace WebApi.Controllers
         }
 
         //https://localhost:44301/home/GetClients
+        [System.Web.Http.HttpGet]
         public string GetClients()
         {
             try
@@ -216,7 +217,7 @@ namespace WebApi.Controllers
                             return " שים לב! הפציינט קיבל" + sh + " חיסונים ";
                         }
                     }
-                    else return "לא קיים כזה פציינט";
+                     return "לא קיים כזה פציינט";
                 }
             }
             catch (Exception ex)
@@ -227,7 +228,7 @@ namespace WebApi.Controllers
 
 
 
-        //https://localhost:44301/home/DeleteClient?tz=111111111 
+        //https://localhost:44301/home/DeleteClient?tz 
         //sendfuc
         [System.Web.Http.HttpGet]
         public string DeleteClient(string tz)
