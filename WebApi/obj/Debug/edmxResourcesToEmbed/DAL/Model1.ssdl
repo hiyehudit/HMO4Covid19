@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HMO4Covid19_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="tz" />
+    </Key>
+    <Property Name="tz" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="40" />
+    <Property Name="lastName" Type="varchar" MaxLength="40" />
+    <Property Name="postalCode" Type="varchar" MaxLength="20" />
+    <Property Name="birthDate" Type="datetime" />
+    <Property Name="telephone" Type="varchar" MaxLength="9" />
+    <Property Name="selphone" Type="varchar" MaxLength="10" />
+    <Property Name="beIllDate" Type="datetime" />
+    <Property Name="beHealthDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Shot">
+    <Key>
+      <PropertyRef Name="codeShot" />
+    </Key>
+    <Property Name="codeShot" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="manufactorer" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="shot4Client">
+    <Key>
+      <PropertyRef Name="Id_shot4Client" />
+    </Key>
+    <Property Name="Id_shot4Client" Type="int" Nullable="false" />
+    <Property Name="tz" Type="varchar" MaxLength="9" />
+    <Property Name="codeShot" Type="int" />
+    <Property Name="shotDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_Address">
+    <Key>
+      <PropertyRef Name="postalCode" />
+    </Key>
+    <Property Name="postalCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="20" />
+    <Property Name="street" Type="varchar" MaxLength="30" />
+    <Property Name="numBuild" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Client__postalCo__2A4B4B5E">
+    <End Role="T_Address" Type="Self.T_Address" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Address">
+        <PropertyRef Name="postalCode" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="postalCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shot4Clie__codeS__30F848ED">
+    <End Role="Shot" Type="Self.Shot" Multiplicity="0..1" />
+    <End Role="shot4Client" Type="Self.shot4Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shot">
+        <PropertyRef Name="codeShot" />
+      </Principal>
+      <Dependent Role="shot4Client">
+        <PropertyRef Name="codeShot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shot4Client__tz__300424B4">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="shot4Client" Type="Self.shot4Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="tz" />
+      </Principal>
+      <Dependent Role="shot4Client">
+        <PropertyRef Name="tz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HMO4Covid19_dbModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shot" EntityType="Self.Shot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shot4Client" EntityType="Self.shot4Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Address" EntityType="Self.T_Address" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Client__postalCo__2A4B4B5E" Association="Self.FK__Client__postalCo__2A4B4B5E">
+      <End Role="T_Address" EntitySet="T_Address" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shot4Clie__codeS__30F848ED" Association="Self.FK__shot4Clie__codeS__30F848ED">
+      <End Role="Shot" EntitySet="Shot" />
+      <End Role="shot4Client" EntitySet="shot4Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shot4Client__tz__300424B4" Association="Self.FK__shot4Client__tz__300424B4">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="shot4Client" EntitySet="shot4Client" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

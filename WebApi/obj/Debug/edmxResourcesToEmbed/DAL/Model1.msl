@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HMO4Covid19_dbModelStoreContainer" CdmEntityContainer="HMO4Covid19_dbEntities">
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="tz" ColumnName="tz" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="selphone" ColumnName="selphone" />
+          <ScalarProperty Name="beIllDate" ColumnName="beIllDate" />
+          <ScalarProperty Name="beHealthDate" ColumnName="beHealthDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shot">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.Shot">
+        <MappingFragment StoreEntitySet="Shot">
+          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
+          <ScalarProperty Name="manufactorer" ColumnName="manufactorer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shot4Client">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.shot4Client">
+        <MappingFragment StoreEntitySet="shot4Client">
+          <ScalarProperty Name="Id_shot4Client" ColumnName="Id_shot4Client" />
+          <ScalarProperty Name="tz" ColumnName="tz" />
+          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
+          <ScalarProperty Name="shotDate" ColumnName="shotDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Address">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.T_Address">
+        <MappingFragment StoreEntitySet="T_Address">
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="numBuild" ColumnName="numBuild" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
