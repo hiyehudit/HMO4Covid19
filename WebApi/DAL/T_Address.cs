@@ -11,7 +11,9 @@ namespace WebApi.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+
+    public class fff { public string tz;public DateTime shotDate; }
+
     public partial class T_Address
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

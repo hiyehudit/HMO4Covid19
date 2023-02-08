@@ -1,16 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿//using Microsoft.AspNetCore.Web.Cors;
+
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using WebApi.DAL;
 
 namespace WebApi.Controllers
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
     public class HomeController : Controller
     {
         JsonSerializerSettings settings = new JsonSerializerSettings()
@@ -28,6 +32,7 @@ namespace WebApi.Controllers
             return View();
         }
 
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         //https://localhost:44301/home/GetClients
         [System.Web.Http.HttpGet]
         public string GetClients()
@@ -47,7 +52,7 @@ namespace WebApi.Controllers
             }
         }
 
-        //https://localhost:44301/home/GetShotsByTz/212675667
+        //https://localhost:44301/home/GetShotsByTz/
         [System.Web.Http.HttpGet]
         public string GetShotsByTz(string tz)
         {
@@ -67,6 +72,7 @@ namespace WebApi.Controllers
                     }
 
                 }
+                //return htt
                 return JsonConvert.SerializeObject(lstShots, settings);
             }
             catch (Exception ex)
@@ -112,16 +118,19 @@ namespace WebApi.Controllers
             }
         }
 
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+
         [System.Web.Http.HttpPost]
         //https://localhost:44301/home/AddShot
-        public string AddShot(string tz, DateTime shotDate)
+        public string AddShot(fff gg)
         {
             try
             {
                 List<shot4Client> lstShots = new List<shot4Client>();
                 using (var db = new HMO4Covid19_dbEntities())
                 {
-                    Client client = db.Client.FirstOrDefault(x => x.tz == tz);//שליםת הלקוח המיועד למחיקה
+                    Client client = db.Client.FirstOrDefault(x => x.tz == gg.tz);//שליםת הלקוח המיועד למחיקה
                     if (client == null)
                     {
                         //List<shot4Client> shots = db.shot4Client.Where(x => x.tz == tz).ToList();//שליפת כל החיסונים של הלקוח
@@ -136,13 +145,13 @@ namespace WebApi.Controllers
                     }
                     else
                     {
-                        lstShots = db.shot4Client.Where(x => x.tz == tz).ToList();
+                        lstShots = db.shot4Client.Where(x => x.tz ==gg.tz).ToList();
                         if (lstShots.Count() == 4)
                             return "הפציינט עשה כבר 4 חיסונים";
                         else
                         {
                             int codeShot = lstShots.Count() + 1;
-                            shot4Client sh4cl = new shot4Client(tz, codeShot, shotDate);
+                            shot4Client sh4cl = new shot4Client(gg.tz, codeShot, gg.shotDate);
                             db.shot4Client.Add(sh4cl);
                             db.SaveChanges();
                             return "נוסף בהצלחה";
