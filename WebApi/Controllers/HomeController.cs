@@ -47,7 +47,7 @@ namespace WebApi.Controllers
             }
         }
 
-        //https://localhost:44301/home/GetShotsByTz
+        //https://localhost:44301/home/GetShotsByTz/212675667
         [System.Web.Http.HttpGet]
         public string GetShotsByTz(string tz)
         {

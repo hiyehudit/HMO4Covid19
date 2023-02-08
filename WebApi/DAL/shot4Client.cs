@@ -12,8 +12,11 @@ namespace WebApi.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class shot4Client
-    {
+    public partial class shot4Client { 
+        public shot4Client()
+        {
+            
+        }
         public shot4Client(string tz, int codeShot, DateTime shotDate)
         {
             this.tz = tz;
