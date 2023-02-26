@@ -11,25 +11,13 @@ namespace WebApi.DAL
 {
     using System;
     using System.Collections.Generic;
-
-    public class fff { public string tz;public DateTime shotDate; }
-
+    
     public partial class T_Address
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public T_Address()
-        {
-            this.Client = new HashSet<Client>();
-        }
-
-
-
         public string postalCode { get; set; }
         public string city { get; set; }
         public string street { get; set; }
         public string numBuild { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
+        public string tz { get; set; }
     }
 }

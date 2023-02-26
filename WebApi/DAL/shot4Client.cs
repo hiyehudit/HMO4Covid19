@@ -12,24 +12,14 @@ namespace WebApi.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class shot4Client { 
-        public shot4Client()
-        {
-            
-        }
-        public shot4Client(string tz, int codeShot, DateTime shotDate)
-        {
-            this.tz = tz;
-            this.codeShot = codeShot;
-            this.shotDate = shotDate;
-
-        }
+    public partial class shot4Client
+    {
         public int Id_shot4Client { get; set; }
         public string tz { get; set; }
         public Nullable<int> codeShot { get; set; }
         public Nullable<System.DateTime> shotDate { get; set; }
     
-        public virtual Client Client { get; set; }
         public virtual Shot Shot { get; set; }
+        public virtual Person Person { get; set; }
     }
 }
