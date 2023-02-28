@@ -19,7 +19,7 @@ namespace WebApi.DAL
         public Nullable<int> codeShot { get; set; }
         public Nullable<System.DateTime> shotDate { get; set; }
     
-        public virtual Shot Shot { get; set; }
         public virtual Person Person { get; set; }
+        public virtual Shot Shot { get; set; }
     }
 }

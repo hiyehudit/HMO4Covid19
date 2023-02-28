@@ -22,6 +22,17 @@ namespace WebApi.DTO
         {
 
         }
+        public T_Address TOAdressDAL(AdressDTO a)
+        {
+            T_Address t = new T_Address();
+            t.postalCode = a.postalCode;
+            t.city = a.city;
+            t.street = a.street;
+            t.numBuild = a.numBuild;
+            t.tz = a.tz;
+
+            return t;
+        }
         public string postalCode { get; set; }
         public string city { get; set; }
         public string street { get; set; }

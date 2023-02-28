@@ -17,7 +17,13 @@ namespace WebApi.DTO
             this.codeShot = item.codeShot;
             this.manufactorer= item.manufactorer;
         }
-
+        public Shot ToShotDAL(ShotDTO item)
+        {
+            Shot s = new Shot();
+            s.codeShot = item.codeShot;
+            s.manufactorer = item.manufactorer;
+            return s;
+        }
         public int codeShot { get; set; }
         public string manufactorer { get; set; }
     }

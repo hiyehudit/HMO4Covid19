@@ -25,9 +25,11 @@ namespace WebApi.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Client> Client { get; set; }
-        public virtual DbSet<Shot> Shot { get; set; }
+        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Shot> Shots { get; set; }
         public virtual DbSet<shot4Client> shot4Client { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<T_Address> T_Address { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

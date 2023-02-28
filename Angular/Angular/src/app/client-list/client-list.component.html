@@ -1,0 +1,68 @@
+
+
+<!-- <div class="list-group w-auto"> -->
+      <div class="card container col-md-6 offset-md-3 mt-5">
+        <div class="card-header row justify-content-between">
+          <h4 class="col">פרטי משתמשים</h4>
+          <a class="col-2" (click)="back()" [routerLink]="[ '/addUser','' ]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle " viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+      </a>
+      </div>
+  <div *ngFor="let item of clients">
+    <span class="pt-1 form-checked-content">  
+        <div class="card-body"> 
+            <div class="row">
+              <div class="row colom col-md-2">
+              <button class="col-md-2" type="button" class="btn btn-primary circle"> <a [routerLink]="[ '/addUser', item.tz ]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </a></button>
+              
+              <button type="button" class="btn btn-primary circle " (click)="deleteClient(item)"><a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </a>
+              </button>
+            </div>
+   
+          <div class="row righter col">
+      <h3>
+        <a [routerLink]="['/userDtails/', item.tz]">
+          {{item.lastName}} {{item.firstName}}</a></h3>
+      <strong>{{item.tz}} :מספר זהות
+      </strong>
+  
+      <small class="d-block text-muted">
+        <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+        {{item.birthDate|date}}
+        :תאריך לידה
+      </small>
+    </div>
+    </div>
+           </div>
+    </span>
+  </div>
+  
+</div>
+
+ 
+      <!-- <div class="modal-header"> 
+        <h5 class="modal-title">Modal title</h5>
+        <div>
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+     </div>
+    -->

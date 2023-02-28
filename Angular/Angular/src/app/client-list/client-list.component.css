@@ -1,0 +1,69 @@
+.circle{
+  border-radius: 50%;
+  border: transparent;
+  background-color: transparent;
+  height: 1cm;
+  width: 1cm;
+}
+
+.righter{
+  text-align: right;
+ }
+ .colom{
+  flex-direction: column;
+ }
+
+ *{
+  text-decoration: none;
+ }
+ svg{
+  margin-top: 0.75ch;
+  
+ }
+
+a:not([href]):not([class]){
+  background-color: transparent; 
+  color: var(--bs-link-color);
+}
+.justify-content-between{
+  align-items: stretch;
+  justify-content: space-between !important;
+}
+/* .modal-header{
+  flex-direction: row-reverse
+} */
+/* *{
+  color:   rgb(62 59 116);
+  text-decoration: none;
+  border: none;
+
+  background-color:rgb(176, 213, 241); 
+}
+a{
+  color:rgb(117, 77, 2);
+}
+button{
+  color:rgb(117, 77, 2);
+  margin-bottom: 1px;
+}
+
+button.btn-primary{
+  color:rgb(117, 77, 2);
+  --bs-btn-color:rgb(205, 243, 237);  
+    --bs-btn-bg: rgb(117, 77, 2);
+   --bs-btn-border-color: none;
+    --bs-btn-hover-color:#1976D2;;  
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-border-color:none;
+    --bs-btn-focus-shadow-rgb: none;
+    --bs-btn-active-color: rgb(205, 243, 237); 
+    --bs-btn-active-bg: none;
+    --bs-btn-active-border-color: none;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color:rgb(205, 243, 237); 
+    --bs-btn-disabled-bg: none;
+    --bs-btn-disabled-border-color:none;
+}
+.list-group-item{
+  border-bottom: 4px red;
+} */

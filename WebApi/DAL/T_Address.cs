@@ -19,5 +19,7 @@ namespace WebApi.DAL
         public string street { get; set; }
         public string numBuild { get; set; }
         public string tz { get; set; }
+    
+        public virtual Person Person { get; set; }
     }
 }

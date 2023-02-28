@@ -1,0 +1,19 @@
+nav{
+  
+  background-color: rgb(161, 205, 238) !important; 
+
+}
+/* svg{
+  color: rgb(117, 77, 2);
+} */
+a.nav-link.active{
+  
+    color: rgb(37, 24, 3);
+  
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+
+  flex-direction: row-reverse;
+}

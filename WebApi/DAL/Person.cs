@@ -32,5 +32,6 @@ namespace WebApi.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shot4Client> shot4Client { get; set; }
+        public virtual T_Address T_Address { get; set; }
     }
 }

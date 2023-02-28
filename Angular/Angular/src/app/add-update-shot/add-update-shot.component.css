@@ -1,0 +1,23 @@
+/* 
+*{
+  color:   rgb(62 59 116);
+  text-decoration: none;
+  border: none;
+  background-color: rgb(189 ,219, 235);
+
+}
+a{
+  color:rgb(117, 77, 2);
+}
+button{
+  color:rgb(117, 77, 2);
+  margin-bottom: 1px;
+}
+.righter{
+ text-align: right;
+}
+
+.list-group-item{
+  border-bottom: 4px red;
+}
+.form-control,select { background-color:   rgb(179 ,205, 219);} */

@@ -17,11 +17,20 @@ namespace WebApi.DTO
             this.codeShot= shot.codeShot??0;
 
         }
+        public shot4Client TOshot4ClientDAL(shot4ClientDTO shot)
+        {
+            shot4Client s = new shot4Client();
+            s.shotDate = shot.shotDate;
+            s.Id_shot4Client = shot.Id_shot4Client;
+            s.tz = shot.tz;
+            s.codeShot = shot.codeShot ?? 0;
+            return s;
 
-        public int Id_shot4Client { get; set; }
+        }
+         public int Id_shot4Client { get; set; }
         public string tz { get; set; }
         public Nullable<int> codeShot { get; set; }
         public DateTime shotDate { get; set; }
-
+        
     }
 }

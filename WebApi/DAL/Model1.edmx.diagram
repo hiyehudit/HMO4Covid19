@@ -4,14 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4668703573ae4b6d846f1ae8e7c99631" Name="Diagram1">
-        <EntityTypeShape EntityType="HMO4Covid19_dbModel.Client" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HMO4Covid19_dbModel.Shot" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HMO4Covid19_dbModel.shot4Client" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HMO4Covid19_dbModel.T_Address" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="HMO4Covid19_dbModel.FK__Client__postalCo__2A4B4B5E" ManuallyRouted="false" />
-        <AssociationConnector Association="HMO4Covid19_dbModel.FK__shot4Client__tz__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="HMO4Covid19_dbModel.FK__shot4Clie__codeS__30F848ED" ManuallyRouted="false" />
+      <Diagram DiagramId="4668703573ae4b6d846f1ae8e7c99631" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.Person" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.Shot" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.shot4Client" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.T_Address" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="HMO4Covid19_dbModel.FK_shot4Client_Person" />
+        <AssociationConnector Association="HMO4Covid19_dbModel.FK_T_Address_Person" />
+        <AssociationConnector Association="HMO4Covid19_dbModel.FK__shot4Clie__codeS__2C3393D0" />
+        <EntityTypeShape EntityType="HMO4Covid19_dbModel.User" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

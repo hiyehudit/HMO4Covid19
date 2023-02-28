@@ -1,0 +1,82 @@
+<!-- <a routerLink="ClientList" class="icon-header">
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+</svg>
+</a> -->
+<main  class="container  col-md-6 offset-md-3 mt-5">
+  <div class="card mb-3" >
+  <h4 class="card-header ">:פרטי משתמש </h4>
+  <!-- <div class="p-4 p-md-5 mb-4 rounded text-bg-dark"> -->
+    <div class="card-body">
+      <h5 class="card-title t-center">{{user.firstName}} {{user.lastName}} </h5>
+     <p class="1">מספר זהות : {{user.tz}}</p>
+     <p class="card-text mb-auto">
+        {{user.birthDate|date}}
+        :תאריך לידה 
+      </p>
+    </div>
+    </div>
+
+<!-- <div class="row mb-2">
+  <div class="col-md-6"> -->
+    <div class="card mb-3" >
+    <h5 class="card-title t-center">כתובת</h5>
+    <div class="card-body">
+    <!-- <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static"> -->
+        <p class="card-text mb-auto" >מיקוד:{{adrees.postalCode}}</p>
+      <p class="card-text mb-auto">{{adrees.numB}} {{adrees.city}}-  {{adrees.street}}  
+        </p>
+        <p class="card-text mb-auto">פלפון:{{user.telephone}}</p>
+    <p class="card-text mb-auto" >טלפון:{{user.telephone}}</p>
+      </div>
+    </div>
+    <!-- </div>
+  </div> -->
+  <div class="card mb-3" >
+   <h5 class="card-title t-center">פרטי חיסון</h5>
+  <div class="card-body">
+<div *ngFor="let shot4 of k" ngModel="k"
+name="k" #k="ngModel">
+  <div class="flex">
+      <p class="card-text ">שם חיסון:{{shot4}}
+          קוד חיסון:{{shot4.codeShot}}
+          <br>
+          {{shot4.shotDate|date}} 
+          :תאריך קבלה
+        </p>
+       
+          <div class="row" style="flex-direction: column-reverse" >
+        <button type="button" class="btn-primary circle col-md-2" style="color:#0d6efd" (click)="deleteShot4(shot4)">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg></button>
+        <button type="button" class="btn btn-primary circle"><a [routerLink]="['','updateShot',shot4.codeShot,shot4.tz]"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg></a></button>
+      </div>
+    </div>
+</div>
+      <h5 class="card-title">:פרטי מחלה</h5>
+      <p class="card-text mb-auto">
+          {{user.beIllDate|date}}
+          :תאריך קבלת הקורונה
+        </p>
+        <p class="card-text mb-auto">
+        {{user.beHealthDate|date}}
+       :תאריך החלמה
+     
+        </p>
+      </div>
+   <div class="card-footer">
+    
+    <a  [routerLink]="['addupdateShot',user.tz]" class="icon-add" data-bs-toggle="tooltip" data-bs-title="הוספת חיסונים">
+      הוספת חיסונים
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    </svg>
+    </a>
+   </div>
+    </div>
+</main>

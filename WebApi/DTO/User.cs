@@ -5,25 +5,40 @@ using System.Web;
 
 namespace WebApi.DTO
 {
-    public class User
+    public class UserDTO
     {
-        public User()
+
+        public UserDTO()
         {
 
         }
-
-        public User(object user)
+        public UserDTO(WebApi.DAL.User u)
         {
-
+            this.password = u.password;
+            this.firstName = u.firstName;
+            this.lastName = u.lastName;
+            this.id = u.id;
+            this.username = u.username;
+        }
+        public WebApi.DAL.User ToUserDal(UserDTO u)
+        {
+            WebApi.DAL.User D = new WebApi.DAL.User();
+            D.password = u.password;
+            D.firstName = u.firstName;
+            D.lastName = u.lastName;
+            D.id = u.id;
+            D.username = u.username;
+            return D;
         }
 
-        public string id { get; set; }
-        public string username { get; set; }
-        public string lastName { get; set; }
+        public int id { get; set; }
         public string password { get; set; }
         public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string username { get; set; }
+        public string token { get; set; }
 
-        public string Token { get; set; }
+
 
     }
 }

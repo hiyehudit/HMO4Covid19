@@ -1,0 +1,23 @@
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;  
+  
+} 
+
+ .ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; 
+}
+
+/* .form-control { background-color:    rgb(208 228 255);}
+.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: rgb(117, 77, 2);
+  border: none;
+  opacity: var(--bs-btn-disabled-opacity);
+  margin-right: 5px;
+}
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+  cursor: pointer;
+
+  border-color:  rgb(117, 77, 2);
+} */
