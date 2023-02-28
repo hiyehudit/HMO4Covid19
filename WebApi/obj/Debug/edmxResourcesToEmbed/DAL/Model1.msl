@@ -1,46 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="HMO4Covid19_dbModelStoreContainer" CdmEntityContainer="HMO4Covid19_dbEntities">
-    <EntitySetMapping Name="Client">
-      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.Client">
-        <MappingFragment StoreEntitySet="Client">
-          <ScalarProperty Name="tz" ColumnName="tz" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
-          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
-          <ScalarProperty Name="telephone" ColumnName="telephone" />
-          <ScalarProperty Name="selphone" ColumnName="selphone" />
-          <ScalarProperty Name="beIllDate" ColumnName="beIllDate" />
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.Person">
+        <MappingFragment StoreEntitySet="Person">
           <ScalarProperty Name="beHealthDate" ColumnName="beHealthDate" />
+          <ScalarProperty Name="beIllDate" ColumnName="beIllDate" />
+          <ScalarProperty Name="selphone" ColumnName="selphone" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="tz" ColumnName="tz" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Shot">
+    <EntitySetMapping Name="Shots">
       <EntityTypeMapping TypeName="HMO4Covid19_dbModel.Shot">
         <MappingFragment StoreEntitySet="Shot">
-          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
           <ScalarProperty Name="manufactorer" ColumnName="manufactorer" />
+          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="shot4Client">
       <EntityTypeMapping TypeName="HMO4Covid19_dbModel.shot4Client">
         <MappingFragment StoreEntitySet="shot4Client">
-          <ScalarProperty Name="Id_shot4Client" ColumnName="Id_shot4Client" />
-          <ScalarProperty Name="tz" ColumnName="tz" />
-          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
           <ScalarProperty Name="shotDate" ColumnName="shotDate" />
+          <ScalarProperty Name="codeShot" ColumnName="codeShot" />
+          <ScalarProperty Name="tz" ColumnName="tz" />
+          <ScalarProperty Name="Id_shot4Client" ColumnName="Id_shot4Client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="T_Address">
       <EntityTypeMapping TypeName="HMO4Covid19_dbModel.T_Address">
         <MappingFragment StoreEntitySet="T_Address">
-          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="tz" ColumnName="tz" />
           <ScalarProperty Name="numBuild" ColumnName="numBuild" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="HMO4Covid19_dbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

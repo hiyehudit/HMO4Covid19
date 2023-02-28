@@ -1,10 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HMO4Covid19_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Client">
+  <EntityContainer Name="HMO4Covid19_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="HMO4Covid19_dbModel.Person" />
+    <EntitySet Name="Shots" EntityType="HMO4Covid19_dbModel.Shot" />
+    <EntitySet Name="shot4Client" EntityType="HMO4Covid19_dbModel.shot4Client" />
+    <EntitySet Name="sysdiagrams" EntityType="HMO4Covid19_dbModel.sysdiagram" />
+    <EntitySet Name="T_Address" EntityType="HMO4Covid19_dbModel.T_Address" />
+    <AssociationSet Name="FK_shot4Client_Person" Association="HMO4Covid19_dbModel.FK_shot4Client_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="shot4Client" EntitySet="shot4Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Address_Person" Association="HMO4Covid19_dbModel.FK_T_Address_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="T_Address" EntitySet="T_Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shot4Clie__codeS__2C3393D0" Association="HMO4Covid19_dbModel.FK__shot4Clie__codeS__2C3393D0">
+      <End Role="Shot" EntitySet="Shots" />
+      <End Role="shot4Client" EntitySet="shot4Client" />
+    </AssociationSet>
+    <EntitySet Name="User" EntityType="HMO4Covid19_dbModel.User" />
+  </EntityContainer>
+  <EntityType Name="Person">
     <Key>
       <PropertyRef Name="tz" />
     </Key>
-    <Property Name="tz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tz" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="postalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -13,8 +33,8 @@
     <Property Name="selphone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="beIllDate" Type="DateTime" Precision="3" />
     <Property Name="beHealthDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="T_Address" Relationship="Self.FK__Client__postalCo__2A4B4B5E" FromRole="Client" ToRole="T_Address" />
-    <NavigationProperty Name="shot4Client" Relationship="Self.FK__shot4Client__tz__300424B4" FromRole="Client" ToRole="shot4Client" />
+    <NavigationProperty Name="shot4Client" Relationship="HMO4Covid19_dbModel.FK_shot4Client_Person" FromRole="Person" ToRole="shot4Client" />
+    <NavigationProperty Name="T_Address" Relationship="HMO4Covid19_dbModel.FK_T_Address_Person" FromRole="Person" ToRole="T_Address" />
   </EntityType>
   <EntityType Name="Shot">
     <Key>
@@ -22,46 +42,45 @@
     </Key>
     <Property Name="codeShot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="manufactorer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="shot4Client" Relationship="Self.FK__shot4Clie__codeS__30F848ED" FromRole="Shot" ToRole="shot4Client" />
+    <NavigationProperty Name="shot4Client" Relationship="HMO4Covid19_dbModel.FK__shot4Clie__codeS__2C3393D0" FromRole="Shot" ToRole="shot4Client" />
   </EntityType>
   <EntityType Name="shot4Client">
     <Key>
       <PropertyRef Name="Id_shot4Client" />
     </Key>
     <Property Name="Id_shot4Client" Type="Int32" Nullable="false" />
-    <Property Name="tz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="tz" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="codeShot" Type="Int32" />
     <Property Name="shotDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Client" Relationship="Self.FK__shot4Client__tz__300424B4" FromRole="shot4Client" ToRole="Client" />
-    <NavigationProperty Name="Shot" Relationship="Self.FK__shot4Clie__codeS__30F848ED" FromRole="shot4Client" ToRole="Shot" />
+    <NavigationProperty Name="Person" Relationship="HMO4Covid19_dbModel.FK_shot4Client_Person" FromRole="shot4Client" ToRole="Person" />
+    <NavigationProperty Name="Shot" Relationship="HMO4Covid19_dbModel.FK__shot4Clie__codeS__2C3393D0" FromRole="shot4Client" ToRole="Shot" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="T_Address">
     <Key>
-      <PropertyRef Name="postalCode" />
+      <PropertyRef Name="tz" />
     </Key>
-    <Property Name="postalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="postalCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="street" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="numBuild" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Client" Relationship="Self.FK__Client__postalCo__2A4B4B5E" FromRole="T_Address" ToRole="Client" />
+    <Property Name="tz" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Person" Relationship="HMO4Covid19_dbModel.FK_T_Address_Person" FromRole="T_Address" ToRole="Person" />
   </EntityType>
-  <Association Name="FK__Client__postalCo__2A4B4B5E">
-    <End Role="T_Address" Type="Self.T_Address" Multiplicity="0..1" />
-    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+  <Association Name="FK_shot4Client_Person">
+    <End Type="HMO4Covid19_dbModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="HMO4Covid19_dbModel.shot4Client" Role="shot4Client" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="T_Address">
-        <PropertyRef Name="postalCode" />
-      </Principal>
-      <Dependent Role="Client">
-        <PropertyRef Name="postalCode" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__shot4Client__tz__300424B4">
-    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-    <End Role="shot4Client" Type="Self.shot4Client" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Client">
+      <Principal Role="Person">
         <PropertyRef Name="tz" />
       </Principal>
       <Dependent Role="shot4Client">
@@ -69,9 +88,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__shot4Clie__codeS__30F848ED">
-    <End Role="Shot" Type="Self.Shot" Multiplicity="0..1" />
-    <End Role="shot4Client" Type="Self.shot4Client" Multiplicity="*" />
+  <Association Name="FK_T_Address_Person">
+    <End Type="HMO4Covid19_dbModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="HMO4Covid19_dbModel.T_Address" Role="T_Address" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="tz" />
+      </Principal>
+      <Dependent Role="T_Address">
+        <PropertyRef Name="tz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shot4Clie__codeS__2C3393D0">
+    <End Type="HMO4Covid19_dbModel.Shot" Role="Shot" Multiplicity="0..1" />
+    <End Type="HMO4Covid19_dbModel.shot4Client" Role="shot4Client" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Shot">
         <PropertyRef Name="codeShot" />
@@ -81,22 +112,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HMO4Covid19_dbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Client" EntityType="Self.Client" />
-    <EntitySet Name="Shot" EntityType="Self.Shot" />
-    <EntitySet Name="shot4Client" EntityType="Self.shot4Client" />
-    <EntitySet Name="T_Address" EntityType="Self.T_Address" />
-    <AssociationSet Name="FK__Client__postalCo__2A4B4B5E" Association="Self.FK__Client__postalCo__2A4B4B5E">
-      <End Role="T_Address" EntitySet="T_Address" />
-      <End Role="Client" EntitySet="Client" />
-    </AssociationSet>
-    <AssociationSet Name="FK__shot4Client__tz__300424B4" Association="Self.FK__shot4Client__tz__300424B4">
-      <End Role="Client" EntitySet="Client" />
-      <End Role="shot4Client" EntitySet="shot4Client" />
-    </AssociationSet>
-    <AssociationSet Name="FK__shot4Clie__codeS__30F848ED" Association="Self.FK__shot4Clie__codeS__30F848ED">
-      <End Role="Shot" EntitySet="Shot" />
-      <End Role="shot4Client" EntitySet="shot4Client" />
-    </AssociationSet>
-  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
